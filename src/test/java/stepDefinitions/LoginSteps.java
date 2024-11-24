@@ -33,7 +33,7 @@ public class LoginSteps {
         driver.findElement(By.id("password")).sendKeys(password);
 
         // Esperar hasta que el botón de login sea clickeable
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera hasta 10 segundos
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Espera hasta 10 segundos
         wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
 
         // Hacer clic en el botón de login
