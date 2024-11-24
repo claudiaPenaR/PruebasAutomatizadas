@@ -19,7 +19,7 @@ public class LoginSteps {
 
     @Given("el usuario se encuentra en la página de login")
     public void el_usuario_se_encuentra_en_la_página_de_login() {
-        System.setProperty("webdriver.gecko.driver", "C:/Drivers/geckodriver.exe"); // Ajusta la ruta
+        System.setProperty("webdriver.gecko.driver", "C:/ProgramData/Jenkins/drivers/geckodriver.exe"); // Ajusta la ruta
         driver = new FirefoxDriver();
         driver.get("https://the-internet.herokuapp.com/login");
     }
