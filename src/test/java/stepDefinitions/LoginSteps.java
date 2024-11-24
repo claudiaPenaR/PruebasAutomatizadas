@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;  // Importa Duration
+import java.time.Duration;
 import org.openqa.selenium.JavascriptExecutor;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.*;
 
@@ -32,16 +33,18 @@ public class LoginSteps {
         driver.findElement(By.id("username")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
 
-        // Desplazar hasta el botón de login
+        // Desplazar hasta el botón de login usando JavascriptExecutor
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("login-button")));
+        js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.cssSelector("button.radius[type='submit']")));
         
         // Esperar hasta que el botón sea clickeable
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // Espera más tiempo si es necesario
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Ajusta el tiempo si es necesario
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button.radius[type='submit']")));
         
         // Hacer clic en el botón de login
-        driver.findElement(By.id("login-button")).click();
+        //driver.findElement(By.cssSelector("button.radius[type='submit']")).click();
+        WebElement loginButton = driver.findElement(By.xpath("//button[contains(text(), 'Login')]"));
+        loginButton.click();
 
     }
 
@@ -52,3 +55,5 @@ public class LoginSteps {
         driver.quit();
     }
 }
+
+
