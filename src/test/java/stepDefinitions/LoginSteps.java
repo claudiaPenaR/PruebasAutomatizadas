@@ -32,12 +32,17 @@ public class LoginSteps {
         driver.findElement(By.id("username")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
 
-        // Esperar hasta que el botón de login sea clickeable
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Espera hasta 10 segundos
+        // Desplazar hasta el botón de login
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("login-button")));
+        
+        // Esperar hasta que el botón sea clickeable
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60)); // Espera más tiempo si es necesario
         wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
-
+        
         // Hacer clic en el botón de login
         driver.findElement(By.id("login-button")).click();
+
     }
 
     @Then("debe ser redirigido a la página principal")
