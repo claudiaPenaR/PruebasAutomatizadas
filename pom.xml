@@ -11,11 +11,11 @@
    
    
     <!-- Selenium Java (Core) -->
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.5.0</version>
-    </dependency>
+	  <dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>4.5.0</version> <!-- Usa la versión de Selenium que estás utilizando -->
+	</dependency>
 
     <!-- Selenium Firefox Driver -->
     <dependency>
@@ -63,6 +63,29 @@
         <scope>test</scope>
     </dependency>
     
+ 
+    <!-- SLF4J API -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.32</version> <!-- Verifica la versión más reciente -->
+    </dependency>
+
+    <!-- Logback Classic (implementación de SLF4J) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.7</version> <!-- Verifica la versión más reciente -->
+    </dependency>
+
+    <!-- Logback Core (requerido por logback-classic) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.7</version> <!-- Verifica la versión más reciente -->
+    </dependency>
+    
+
 </dependencies>
 
 </project>
