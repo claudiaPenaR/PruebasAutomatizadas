@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
     features = "src/test/resources/features", // Ruta al archivo .feature
     glue = "stepDefinitions", // Paquete donde están las definiciones de pasos
-    plugin = {"pretty", "html:target/cucumber-reports/cucumber-html"} // Reportes
+    plugin = {"pretty", "html:target/cucumber-reports/cucumber.html"} // Reportes
 )
 public class TestRunner {
 }
